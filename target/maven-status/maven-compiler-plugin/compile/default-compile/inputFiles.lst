@@ -1,0 +1,5 @@
+/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/consumer/Consumer.java
+/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/RocketMQClient.java
+/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/producer/OneWayProducer.java
+/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/producer/AyncProducer.java
+/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/producer/SyncProducer.java

@@ -1,0 +1,7 @@
+com/xiaojiaqi/learn/RocketMQClient.class
+com/xiaojiaqi/learn/producer/OneWayProducer.class
+com/xiaojiaqi/learn/producer/AyncProducer.class
+com/xiaojiaqi/learn/producer/AyncProducer$1.class
+com/xiaojiaqi/learn/producer/SyncProducer.class
+com/xiaojiaqi/learn/consumer/Consumer$1.class
+com/xiaojiaqi/learn/consumer/Consumer.class
