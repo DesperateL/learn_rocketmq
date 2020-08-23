@@ -1,5 +1,9 @@
-/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/consumer/Consumer.java
-/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/RocketMQClient.java
-/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/producer/OneWayProducer.java
-/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/producer/AyncProducer.java
-/Users/gopher/java/learn-rocketmq/src/main/java/com/xiaojiaqi/learn/producer/SyncProducer.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/consumer/Consumer02.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/consumer/Consumer01.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/order/Consumer.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/producer/SyncProducer.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/order/Producer.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/producer/AyncProducer.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/order/OrderStep.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/producer/OneWayProducer.java
+/home/liangjiaqi/java/learn_rocketmq/src/main/java/com/xiaojiaqi/learn/RocketMQClient.java

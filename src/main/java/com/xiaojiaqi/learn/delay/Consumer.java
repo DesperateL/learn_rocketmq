@@ -1,11 +1,9 @@
-package com.xiaojiaqi.learn.consumer;
+package com.xiaojiaqi.learn.delay;
 
-import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
-import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
@@ -13,30 +11,32 @@ import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 import java.util.List;
 
 /**
- * 消息的接收者
- * @Author: liangjiaqi
- * @Date: 2020/8/22 8:39 PM
+ * @Author: Gary Leung
+ * @Date: 8/23/20 11:09 AM
  */
-public class Consumer01 {
+public class Consumer {
     public static void main(String[] args) throws Exception {
         // 1. 创建消费者
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
         // 2. 指定nameServer地址
         consumer.setNamesrvAddr("192.168.123.98:9876");
         consumer.setVipChannelEnabled(false);
-        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
         //3. 订阅主题Topic
-        consumer.subscribe("LearnTopic","*");
+        consumer.subscribe("DelayTopic","*");
 
         // 设定消费模式：cluster | broadcast
 
 //        consumer.setMessageModel(MessageModel.BROADCASTING);
-        consumer.setMessageModel(MessageModel.CLUSTERING);
         //4. 设置回调函数，消费消息
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             // 接收消息内容
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
-                System.out.println(msgs);
+                for(MessageExt msg: msgs){
+                    System.out.println("消息ID：【"+msg.getMsgId()+"】"+
+                            "延迟时间："+(System.currentTimeMillis()-msg.getStoreTimestamp())+"body:"+
+                            new String(msg.getBody()));
+
+                }
                 return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
             }
         });

@@ -1,4 +1,4 @@
-package com.xiaojiaqi.learn.consumer;
+package com.xiaojiaqi.learn.baisc.consumer;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
