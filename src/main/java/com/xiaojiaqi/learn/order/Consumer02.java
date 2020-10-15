@@ -1,19 +1,23 @@
 package com.xiaojiaqi.learn.order;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
-import org.apache.rocketmq.client.consumer.listener.*;
+import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
+import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
+import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyContext;
+import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;
+import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
+import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * @Author: Gary Leung
  * @Date: 8/23/20 10:11 AM
  */
-public class Consumer {
+public class Consumer02 {
     public static void main(String[] args) throws Exception {
         // 1. 创建消费者
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
@@ -40,10 +44,10 @@ public class Consumer {
                         e.printStackTrace();
                     }
                     System.out.println("============================"+ new String(msg.getBody()));
+
                 }
                 return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
             }
-
             public ConsumeOrderlyStatus consumeMessage(List<MessageExt> list, ConsumeOrderlyContext consumeOrderlyContext) {
                 for (MessageExt msg: list){
                     int tt = (int)(Math.random()*10000);

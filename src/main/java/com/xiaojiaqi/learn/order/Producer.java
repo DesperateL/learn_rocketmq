@@ -21,7 +21,7 @@ public class Producer {
         //1.实例化生产者
         DefaultMQProducer producer = new DefaultMQProducer("Order");
         //2.配置nameServer
-        producer.setNamesrvAddr("192.168.123.98:9876");
+        producer.setNamesrvAddr("sr-test-rockermq-1.gz.cvte.cn:9876");
         producer.setVipChannelEnabled(false);
         //3.启动Producer
         producer.start();
@@ -31,7 +31,7 @@ public class Producer {
         List<OrderStep> orderStepList = OrderStep.buildOrders();
 
         for(final OrderStep order : orderStepList){
-            Message msg = new Message("OrderTopic","Order",order.toString().getBytes());
+            Message msg = new Message("OrderTopicTest","Order",order.toString().getBytes());
 
             SendResult send = producer.send(msg, new MessageQueueSelector() {
                 public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
